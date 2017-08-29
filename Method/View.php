@@ -9,7 +9,7 @@ use GDO\Form\GDT_Submit;
 use GDO\Form\MethodForm;
 use GDO\Template\Response;
 use GDO\User\GDT_User;
-use GDO\User\User;
+use GDO\User\GDO_User;
 
 final class View extends MethodForm
 {
