@@ -1,14 +1,14 @@
 <?php
 namespace GDO\Logs\Method;
 
-use GDO\Date\GDO_Date;
+use GDO\Date\GDT_Date;
 use GDO\Date\Time;
 use GDO\File\Filewalker;
-use GDO\Form\GDO_Form;
-use GDO\Form\GDO_Submit;
+use GDO\Form\GDT_Form;
+use GDO\Form\GDT_Submit;
 use GDO\Form\MethodForm;
 use GDO\Template\Response;
-use GDO\User\GDO_User;
+use GDO\User\GDT_User;
 use GDO\User\User;
 
 final class View extends MethodForm
@@ -27,15 +27,15 @@ final class View extends MethodForm
 		return parent::execute()->add($this->renderLogfiles());
 	}
 	
-	public function createForm(GDO_Form $form)
+	public function createForm(GDT_Form $form)
 	{
-		$form->addField(GDO_Date::make('log_date_from'));
-		$form->addField(GDO_Date::make('log_date_to'));
-		$form->addField(GDO_User::make('log_user'));
-		$form->addField(GDO_Submit::make()->label('view'));
+		$form->addField(GDT_Date::make('log_date_from'));
+		$form->addField(GDT_Date::make('log_date_to'));
+		$form->addField(GDT_User::make('log_user'));
+		$form->addField(GDT_Submit::make()->label('view'));
 	}
 	
-	public function formValidated(GDO_Form $form)
+	public function formValidated(GDT_Form $form)
 	{
 		$this->dateMin = $form->getField('log_date_from')->getValue();
 		$this->dateMax = $form->getField('log_date_to')->getValue();

@@ -2,18 +2,18 @@
 namespace GDO\Logs;
 
 use GDO\Core\Module;
-use GDO\Date\GDO_Date;
-use GDO\Type\GDO_Checkbox;
+use GDO\Date\GDT_Date;
+use GDO\Type\GDT_Checkbox;
 
 final class Module_Logs extends Module
 {
     public function getConfig()
 	{
 		return array(
-			GDO_Checkbox::make('log_requests')->initial('0'),
-			GDO_Checkbox::make('log_rotation_mail')->initial('1'),
-			GDO_Checkbox::make('log_rotation')->initial('1'),
-			GDO_Date::make('last_log_rotation'),
+			GDT_Checkbox::make('log_requests')->initial('0'),
+			GDT_Checkbox::make('log_rotation_mail')->initial('1'),
+			GDT_Checkbox::make('log_rotation')->initial('1'),
+			GDT_Date::make('last_log_rotation'),
 		);
 	}
 	
