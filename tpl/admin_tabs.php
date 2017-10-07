@@ -1,5 +1,5 @@
 <?php
-use GDO\Template\GDT_Bar;
+use GDO\UI\GDT_Bar;
 use GDO\UI\GDT_Link;
 
 $navbar = GDT_Bar::make('tabs');

@@ -1,4 +1,4 @@
 <?php
-use GDO\Template\GDT_Box;
+use GDO\UI\GDT_Panel;
 
-echo GDT_Box::make()->title(basename($path))->html(file_get_contents($path))->render();
+echo GDT_Panel::make()->title(basename($path))->html(file_get_contents($path))->render();

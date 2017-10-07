@@ -7,7 +7,7 @@ use GDO\File\Filewalker;
 use GDO\Form\GDT_Form;
 use GDO\Form\GDT_Submit;
 use GDO\Form\MethodForm;
-use GDO\Template\Response;
+use GDO\Core\GDT_Response;
 use GDO\User\GDT_User;
 use GDO\User\GDO_User;
 
@@ -46,7 +46,7 @@ final class View extends MethodForm
 	{
 		$path = GWF_PATH . 'protected/logs/';
 		$path .= $this->user ? $this->user->getUserName() : '';
-		$response = new Response('');
+		$response = new GDT_Response('');
 		Filewalker::traverse($path, [$this, 'renderLogfile'], false, true, $response);
 		return $response;
 	}

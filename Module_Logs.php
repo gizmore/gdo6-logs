@@ -3,7 +3,7 @@ namespace GDO\Logs;
 
 use GDO\Core\GDO_Module;
 use GDO\Date\GDT_Date;
-use GDO\Type\GDT_Checkbox;
+use GDO\DB\GDT_Checkbox;
 use GDO\Core\Logger;
 
 final class Module_Logs extends GDO_Module

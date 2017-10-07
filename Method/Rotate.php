@@ -1,7 +1,7 @@
 <?php
 namespace GDO\Logs\Method;
 
-use GDO\Cronjob\MethodCronjob;
+use GDO\Core\MethodCronjob;
 use GDO\Date\Time;
 use GDO\Logs\Module_Logs;
 
