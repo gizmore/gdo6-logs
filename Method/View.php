@@ -9,13 +9,9 @@ use GDO\Form\GDT_Submit;
 use GDO\Form\MethodForm;
 use GDO\Core\GDT_Response;
 use GDO\User\GDT_User;
-use GDO\User\GDO_User;
 
 final class View extends MethodForm
 {
-	/**
-	 * @var User
-	 */
 	private $user;
 	
 	private $dateMin, $dateMax;

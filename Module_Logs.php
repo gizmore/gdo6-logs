@@ -21,7 +21,7 @@ final class Module_Logs extends GDO_Module
 	public function cfgLogRequests() { return $this->getConfigValue('log_requests'); }
 	public function cfgLogRotationMail() { return $this->getConfigValue('log_rotation_mail'); }
 	public function cfgLogRotation() { return $this->getConfigValue('log_rotation'); }
-	public function cfgLastRotation() { return $this->getConfigValue('last_log_rotation'); }
+	public function cfgLastRotation() { return $this->getConfigVar('last_log_rotation'); }
 	
 	public function renderAdminTabs() { return $this->templatePHP('admin_tabs.php'); }
 	

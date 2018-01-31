@@ -2,13 +2,15 @@
 namespace GDO\Logs\Method;
 
 use GDO\Core\MethodCronjob;
-use GDO\Date\Time;
 use GDO\Logs\Module_Logs;
-use GDO\File\GDO_File;
 use GDO\File\FileUtil;
 use GDO\Mail\Mail;
 use GDO\User\GDO_User;
 
+/**
+ * Cronjob for log rotation.
+ * Sends logzip via mail.
+ */
 final class Rotate extends MethodCronjob
 {
 	public function run()
@@ -17,13 +19,12 @@ final class Rotate extends MethodCronjob
 		
 		if ($module->cfgLogRotation())
 		{
-			$now = date('Ymd');
+			$now = date('Y-m-d');
 			$last = $module->cfgLastRotation();
-			$now = Time::getDate(mktime(0,0,0));
 			if ($last != $now)
 			{
 				$this->logRotate();
-// 				$module->saveConfigValue('log_last_rotation', $now);
+				$module->saveConfigVar('last_log_rotation', $now);
 			}
 		}
 	}
@@ -36,6 +37,10 @@ final class Rotate extends MethodCronjob
 		
 		$filename = sitename() . '_' . date('Ymd') . '.log.zip';
 		$command = "cd protected && find logs -daystart -mtime +1 | zip -r9 logs_zipped/$filename -@";
+		exec($command, $output, $return_val);
+		echo print_r($output, 1);
+		
+		$command = "cd protected && find logs -daystart -mtime +1 -delete";
 		exec($command, $output, $return_val);
 		echo print_r($output, 1);
 		
