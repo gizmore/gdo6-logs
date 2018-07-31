@@ -6,6 +6,8 @@ use GDO\Logs\Module_Logs;
 use GDO\File\FileUtil;
 use GDO\Mail\Mail;
 use GDO\User\GDO_User;
+use GDO\Core\Application;
+use GDO\Core\Logger;
 
 /**
  * Cronjob for log rotation.
@@ -16,6 +18,12 @@ final class Rotate extends MethodCronjob
 	public function run()
 	{
 		$module = Module_Logs::instance();
+		
+		if (Application::instance()->isWindows())
+		{
+		    Logger::logCron("Log rotation on windows is not supported.");
+		    return false;
+		}
 		
 		if ($module->cfgLogRotation())
 		{
