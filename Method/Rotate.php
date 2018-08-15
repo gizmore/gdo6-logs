@@ -21,8 +21,8 @@ final class Rotate extends MethodCronjob
 		
 		if (Application::instance()->isWindows())
 		{
-		    Logger::logCron("Log rotation on windows is not supported.");
-		    return false;
+			Logger::logCron("Log rotation on windows is not supported.");
+			return false;
 		}
 		
 		if ($module->cfgLogRotation())

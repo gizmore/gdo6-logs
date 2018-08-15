@@ -8,7 +8,7 @@ use GDO\Core\Logger;
 
 final class Module_Logs extends GDO_Module
 {
-    public function getConfig()
+	public function getConfig()
 	{
 		return array(
 			GDT_Checkbox::make('log_requests')->initial('1'),
@@ -29,9 +29,9 @@ final class Module_Logs extends GDO_Module
 	
 	public function onInit()
 	{
-	    if ($this->cfgLogRequests())
-	    {
-	        Logger::log('requests', json_encode($_REQUEST));
-	    }
+		if ($this->cfgLogRequests())
+		{
+			Logger::log('requests', json_encode($_REQUEST));
+		}
 	}
 }
