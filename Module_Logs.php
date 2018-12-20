@@ -20,7 +20,7 @@ final class Module_Logs extends GDO_Module
 	{
 		return array(
 			GDT_Checkbox::make('log_requests')->initial('1'),
-			GDT_Checkbox::make('log_rotation_mail')->initial('1'),
+			GDT_Checkbox::make('log_rotation_mail')->initial('0'),
 			GDT_Checkbox::make('log_rotation')->initial('1'),
 			GDT_Date::make('last_log_rotation'),
 		);
