@@ -1,13 +1,13 @@
 <?php
 namespace GDO\Logs\Method;
 
-use GDO\Core\MethodCronjob;
 use GDO\Logs\Module_Logs;
 use GDO\File\FileUtil;
 use GDO\Mail\Mail;
 use GDO\User\GDO_User;
 use GDO\Core\Application;
 use GDO\Core\Logger;
+use GDO\Cronjob\MethodCronjob;
 
 /**
  * Cronjob for log rotation.
