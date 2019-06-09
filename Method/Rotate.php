@@ -41,7 +41,7 @@ final class Rotate extends MethodCronjob
 	{
 		$this->logNotice('Log Rotation');
 		
-		FileUtil::createDir(GWF_PATH . 'protected/logs_zipped');
+		FileUtil::createDir(GDO_PATH . 'protected/logs_zipped');
 		
 		$filename = sitename() . '_' . date('Ymd') . '.log.zip';
 		$command = "cd protected && find logs -daystart -mtime +1 | zip -r9 logs_zipped/$filename -@";
