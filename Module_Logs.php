@@ -5,6 +5,7 @@ use GDO\Core\GDO_Module;
 use GDO\Date\GDT_Date;
 use GDO\DB\GDT_Checkbox;
 use GDO\Core\Logger;
+use GDO\Core\Application;
 
 /**
  * This module offers logging of requests and log rotation.
@@ -38,9 +39,12 @@ final class Module_Logs extends GDO_Module
 	
 	public function onInit()
 	{
-		if ($this->cfgLogRequests())
-		{
-			Logger::log('requests', json_encode($_REQUEST));
-		}
+	    if (!Application::instance()->isCLI())
+	    {
+    		if ($this->cfgLogRequests())
+    		{
+    			Logger::log('requests', json_encode($_REQUEST));
+    		}
+	    }
 	}
 }
