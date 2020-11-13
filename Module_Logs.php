@@ -47,4 +47,5 @@ final class Module_Logs extends GDO_Module
     		}
 	    }
 	}
+	
 }
