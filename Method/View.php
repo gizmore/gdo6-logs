@@ -42,7 +42,7 @@ final class View extends MethodForm
 	{
 		$path = GDO_PATH . 'protected/logs/';
 		$path .= $this->user ? $this->user->getUserName() : '';
-		$response = new GDT_Response('');
+		$response = GDT_Response::make();
 		Filewalker::traverse($path, null, [$this, 'renderLogfile'], false, true, $response);
 		return $response;
 	}
