@@ -28,7 +28,7 @@ final class View extends MethodForm
 		$form->addField(GDT_Date::make('log_date_from'));
 		$form->addField(GDT_Date::make('log_date_to'));
 		$form->addField(GDT_User::make('log_user'));
-		$form->addField(GDT_Submit::make()->label('view'));
+		$form->actions()->addField(GDT_Submit::make()->label('view'));
 	}
 	
 	public function formValidated(GDT_Form $form)
