@@ -20,7 +20,7 @@ final class View extends MethodForm
 	{
 		$this->dateMin = Time::getDate();
 		$this->dateMax = Time::getDate();
-		return parent::execute()->add($this->renderLogfiles());
+		return parent::execute()->addField($this->renderLogfiles());
 	}
 	
 	public function createForm(GDT_Form $form)
@@ -49,6 +49,6 @@ final class View extends MethodForm
 	
 	public function renderLogfile($entry, $path, $response)
 	{
-		$response->add($this->templatePHP('logfile.php', ['path' => $path]));
+		$response->addField($this->templatePHP('logfile.php', ['path' => $path]));
 	}
 }
